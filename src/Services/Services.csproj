@@ -3,6 +3,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repository.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\CachedRepository\CachedRepository.csproj" />
+    <ProjectReference Include="..\RedisRepository\RedisRepository.csproj" />
   </ItemGroup>
 
   <ItemGroup>
