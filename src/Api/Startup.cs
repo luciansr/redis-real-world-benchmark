@@ -36,12 +36,13 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            RedisConfig(services);
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
-            
+
 
             services.AddDbContext<AppDbContext>(optionBuilder =>
             {
@@ -53,6 +54,15 @@ namespace Api
             services.AddTransient<BenchmarkService>();
             services.AddTransient<HeavilyRequestedCachedRepository>();
             services.AddTransient<HeavilyRequestedRedisRepository>();
+        }
+
+        private void RedisConfig(IServiceCollection services)
+        {
+            services.AddDistributedRedisCache(option =>
+            {
+                option.Configuration = Configuration["Redis:URL"];
+                option.InstanceName = Configuration["Redis:InstanceName"];
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

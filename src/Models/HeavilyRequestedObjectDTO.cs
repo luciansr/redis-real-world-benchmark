@@ -2,6 +2,7 @@
 
 namespace Models
 {
+    [Serializable]
     public class HeavilyRequestedObjectDTO
     {
          public int Id { get; set; }
