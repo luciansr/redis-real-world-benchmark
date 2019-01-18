@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using CachedRepository;
 using Models;
-using Repository.UnitOfWork;
 
 namespace Services
 {
     public class BenchmarkService
     {
-        private IUnitOfWork _unitOfWork;
+        private HeavilyRequestedCachedRepository _heavilyRequestedCachedRepository;
 
-        public BenchmarkService(IUnitOfWork unitOfWork)
+        public BenchmarkService(HeavilyRequestedCachedRepository heavilyRequestedCachedRepository)
         {
-            _unitOfWork = unitOfWork;
+            _heavilyRequestedCachedRepository = heavilyRequestedCachedRepository;
         }
 
         public HeavilyRequestedObjectDTO GetHeavilyRequestedObjectById(int id)
         {
-            return _unitOfWork.HeavilyRequestedObjects.GetHeavilyRequestedObjectById(id);
+            return _heavilyRequestedCachedRepository.GetHeavilyRequestedObjectById(id);
         }
     }
 }

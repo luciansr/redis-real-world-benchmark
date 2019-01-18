@@ -4,6 +4,6 @@ namespace Repository.UnitOfWork
 {
     public interface IUnitOfWork
     {
-        HeavilyRequestedObjectRepository HeavilyRequestedObjects { get; set; }
+        HeavilyRequestedRepository HeavilyRequestedObjects { get; set; }
     }
 }

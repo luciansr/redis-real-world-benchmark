@@ -8,11 +8,11 @@ using Repository.DatabaseModels;
 
 namespace Repository.Repositories
 {
-    public class HeavilyRequestedObjectRepository
+    public class HeavilyRequestedRepository
     {
         private DbSet<HeavilyRequestedObject> _dbSet;
 
-        public HeavilyRequestedObjectRepository(AppDbContext context)
+        public HeavilyRequestedRepository(AppDbContext context)
         {
             _dbSet = context.HeavilyRequestedObjects;
         }

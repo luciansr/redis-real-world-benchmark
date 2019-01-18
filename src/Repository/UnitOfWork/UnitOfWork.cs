@@ -11,7 +11,7 @@ namespace Repository.UnitOfWork
 
         public UnitOfWork(
             AppDbContext context,
-            HeavilyRequestedObjectRepository userRepository)
+            HeavilyRequestedRepository userRepository)
         {
             _context = context;
             HeavilyRequestedObjects = userRepository;
@@ -23,7 +23,7 @@ namespace Repository.UnitOfWork
                 Migrated = true;
             }
         }
-        public HeavilyRequestedObjectRepository HeavilyRequestedObjects { get; set; }
+        public HeavilyRequestedRepository HeavilyRequestedObjects { get; set; }
 
         public void Save()
         {
